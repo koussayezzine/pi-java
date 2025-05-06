@@ -1,0 +1,72 @@
+/* Style global */
+.root {
+    -fx-background-color: #1e1e2f;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+    -fx-background-color: #2d2d44;
+    -fx-padding: 20px;
+    -fx-spacing: 10px;
+}
+
+/* Profile info */
+.profile-container {
+    -fx-alignment: center;
+    -fx-spacing: 10px;
+}
+
+.profile-name {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.profile-role {
+    -fx-text-fill: #a0a0b2;
+    -fx-font-size: 12px;
+}
+
+/* Buttons */
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #c0c0dc;
+    -fx-font-size: 13px;
+    -fx-alignment: center-left;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 6px;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #383854;
+    -fx-text-fill: #ffffff;
+}
+
+.sidebar-button:selected,
+.sidebar-button:focused {
+    -fx-background-color: #f2274c;
+    -fx-text-fill: #ffffff;
+}
+
+/* Toggle button for light/dark mode */
+.toggle-switch {
+    -fx-background-color: #3a3a5a;
+    -fx-background-radius: 20px;
+}
+
+.toggle-switch .thumb {
+    -fx-background-color: white;
+}
+
+/* Logout button */
+.logout-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ff5e6c;
+    -fx-font-weight: bold;
+}
+
+.logout-button:hover {
+    -fx-background-color: #4d1f2b;
+}

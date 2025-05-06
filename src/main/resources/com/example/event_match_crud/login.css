@@ -1,0 +1,75 @@
+/* login.css */
+
+/* Arrière-plan général */
+.anchor-pane {
+    -fx-background-color: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+
+/* Zone de formulaire */
+.vbox {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 15;
+    -fx-padding: 30;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 10);
+    -fx-border-color: #1fa0da;
+    -fx-border-radius: 15;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: black;
+    -fx-font-size: 16px;
+}
+
+/* Champs de saisie */
+.text-field, .password-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #658ee1;
+    -fx-effect: dropshadow(gaussian, #658ee1, 5, 0.3, 0, 0);
+}
+
+/* Bouton de connexion */
+.button {
+    -fx-background-color: #2394e3;
+    -fx-text-fill: black;
+    -fx-background-radius: 10;
+    -fx-padding: 10 20;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: #1f4053;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.button:pressed {
+    -fx-background-color: #1f4053;
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+}
+
+/* Hyperlink */
+.hyperlink {
+    -fx-text-fill: #1f4053;
+}
+
+.hyperlink:hover {
+    -fx-text-fill: #1f4053;
+    -fx-underline: true;
+}
+
+/* Erreur */
+#errorLabel {
+    -fx-text-fill: #ff4c4c;
+}

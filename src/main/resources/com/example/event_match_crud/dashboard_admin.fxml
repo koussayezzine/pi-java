@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.event_match_crud.controller.AdminDashboardController" prefWidth="800.0" prefHeight="600.0">
+
+    <left>
+        <fx:include source="sidebar.fxml"/>
+    </left>
+
+    <center>
+        <VBox spacing="20" alignment="CENTER" style="-fx-padding: 20;">
+            <Label text="Bienvenue sur le tableau de bord admin" style="-fx-font-size: 18px;"/>
+            <!-- Ajoute ici d'autres éléments spécifiques à l'utilisateur -->
+        </VBox>
+    </center>
+</BorderPane>
