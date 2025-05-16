@@ -1,0 +1,77 @@
+/* Fond de la fenêtre */
+.anchor-pane {
+    -fx-background-color: #f0f5f9;
+}
+
+/* Titre principal */
+.page-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 10px;
+}
+
+/* Champs de texte */
+.text-field {
+    -fx-pref-width: 270px;
+    -fx-pref-height: 40px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1;
+    -fx-padding: 0 10 0 10;
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4, 0, 0, 2);
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-pref-width: 270px;
+    -fx-pref-height: 40px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1;
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-padding: 0 10 0 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4, 0, 0, 2);
+}
+
+/* Bouton Ajouter */
+.submit-button {
+    -fx-pref-width: 180px;
+    -fx-pref-height: 45px;
+    -fx-background-color: #4e73df;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 5, 0, 0, 3);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+/* Hover sur bouton */
+.submit-button:hover {
+    -fx-background-color: #375a7f;
+}
+/* Bouton Retour */
+.return-button {
+    -fx-pref-width: 180px;
+    -fx-pref-height: 45px;
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 5, 0, 0, 3);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+/* Hover sur bouton Retour */
+.return-button:hover {
+    -fx-background-color: #c0392b;
+}

@@ -1,0 +1,230 @@
+.root-pane {
+    -fx-background-color: linear-gradient(to bottom, #1E2A38, #2E3B4E);
+}
+
+.top-bar {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+}
+
+.title-label {
+    -fx-font-family: "Roboto";
+    -fx-font-size: 20;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+.search-field {
+    -fx-background-color: #FFFFFF;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 5 15 5 15;
+    -fx-font-family: "Roboto";
+    -fx-font-size: 14;
+}
+
+.ticket-table {
+    -fx-background-color: #FFFFFF;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);
+}
+
+.ticket-table .column-header {
+    -fx-background-color: #1E2A38;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Roboto";
+    -fx-font-size: 14;
+}
+
+.ticket-table .table-cell {
+    -fx-font-family: "Roboto";
+    -fx-font-size: 13;
+    -fx-text-fill: #333333;
+}
+
+.side-pane {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+}
+
+.details-label {
+    -fx-font-family: "Roboto";
+    -fx-font-size: 16;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+.info-label {
+    -fx-font-family: "Roboto";
+    -fx-font-size: 14;
+    -fx-text-fill: #FFFFFF;
+}
+
+.delete-button {
+    -fx-background-color: #F44336;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Roboto";
+    -fx-font-size: 14;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 8 20 8 20;
+}
+
+.delete-button:hover {
+    -fx-background-color: #D32F2F;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.export-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Roboto";
+    -fx-font-size: 14;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 8 20 8 20;
+}
+
+.export-button:hover {
+    -fx-background-color: #388E3C;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.message-label {
+    -fx-font-family: "Roboto";
+    -fx-font-size: 14;
+}
+.root {
+    -fx-background-color: #f4f4f4;
+}
+.label {
+    -fx-text-fill: #333;
+}
+.button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.button:hover {
+    -fx-background-color: #1976D2;
+}
+.combo-box .list-cell {
+    -fx-text-fill: #333;
+}
+.root-pane {
+    -fx-background-color: #f4f4f4;
+}
+
+.top-bar {
+    -fx-background-color: #2c3e50;
+    -fx-padding: 10;
+}
+
+.title-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.search-field {
+    -fx-pref-height: 30;
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5;
+}
+
+.ticket-table {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+}
+
+.side-pane {
+    -fx-background-color: #ecf0f1;
+    -fx-padding: 20;
+}
+
+.details-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.info-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #34495e;
+}
+
+.delete-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-padding: 8;
+}
+
+.export-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-padding: 8;
+}
+
+.message-label {
+    -fx-font-size: 12px;
+}
+css
+   .root-pane {
+       -fx-background-color: #f4f4f4;
+   }
+
+.ticket-container {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dcdcdc;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);
+    -fx-max-width: 400;
+    -fx-alignment: center;
+}
+
+.ticket-label {
+    -fx-font-size: 14px;
+    -fx-font-family: "Arial";
+    -fx-text-fill: #333333;
+    -fx-padding: 5;
+}
+
+.message-label {
+    -fx-font-size: 12px;
+    -fx-font-family: "Arial";
+    -fx-text-fill: #F44336; /* Rouge par défaut, modifié par code pour succès */
+}
+
+.delete-button {
+    -fx-background-color: #F44336;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-padding: 8 16;
+    -fx-background-radius: 5;
+}
+
+.delete-button:hover {
+    -fx-background-color: #d32f2f;
+}
+
+.action-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-padding: 8 16;
+    -fx-background-radius: 5;
+}
+
+.action-button:hover {
+    -fx-background-color: #388e3c;
+}

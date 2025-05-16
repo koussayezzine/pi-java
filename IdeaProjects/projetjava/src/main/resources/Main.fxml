@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.controllers.MainController"
+      stylesheets="@/style/maincontroller.css"
+      alignment="CENTER"
+      spacing="30"
+      prefHeight="300.0"
+      prefWidth="800.0">
+
+    <!-- Partie gauche : Logo -->
+    <VBox alignment="CENTER">
+        <ImageView fitWidth="100" fitHeight="100">
+            <image>
+                <Image url="@/image/logobus.png" />
+            </image>
+        </ImageView>
+    </VBox>
+
+    <!-- Partie centre : Titre -->
+    <VBox alignment="CENTER">
+        <Label text="Gestion des Réservations et Tickets" styleClass="main-title"/> <!-- Garde ce label -->
+    </VBox>
+
+    <!-- Partie droite : Boutons -->
+    <VBox alignment="CENTER" spacing="15">
+        <!-- Ajoute la classe de style aux boutons -->
+        <Button text="Gérer les réservations" fx:id="reservationsButton" onAction="#goToReservations" styleClass="main-button"/>
+        <Button text="Gérer les tickets" fx:id="ticketsButton" onAction="#goToTickets" styleClass="main-button"/>
+    </VBox>
+</HBox>

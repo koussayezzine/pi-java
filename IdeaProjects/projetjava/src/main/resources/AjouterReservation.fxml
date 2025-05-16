@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane prefHeight="443.0" prefWidth="768.0"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.controllers.AjouterReservation"
+            stylesheets="@style/ajouterreservation.css">
+    <children>
+        <Label layoutX="253.0" layoutY="14.0"
+               text="Ajouter une réservation"
+               styleClass="page-title" />
+
+        <TextField fx:id="tfNom" layoutX="248.0" layoutY="68.0"
+                   promptText="Nom et prénom (ex. John Doe)"
+                   styleClass="text-field" />
+
+        <TextField fx:id="tfEmail" layoutX="248.0" layoutY="126.0"
+                   promptText="Email (ex. user@domain.com)"
+                   styleClass="text-field" />
+
+        <TextField fx:id="tfLieuDepart" layoutX="248.0" layoutY="186.0"
+                   promptText="Lieu de départ"
+                   styleClass="text-field" />
+
+        <TextField fx:id="tfLieuArrive" layoutX="248.0" layoutY="246.0"
+                   promptText="Lieu d'arrivée"
+                   styleClass="text-field" />
+
+        <ComboBox fx:id="cbStatut" layoutX="248.0" layoutY="304.0"
+                  promptText="Statut"
+                  styleClass="combo-box" />
+
+        <Button fx:id="btnAjouter" layoutX="310.0" layoutY="364.0"
+                onAction="#AjouterReservation"
+                text="Ajouter la Réservation"
+                styleClass="submit-button" />
+
+        <Button fx:id="btnRetour" layoutX="50.0" layoutY="364.0"
+                onAction="#retour"
+                text="Retour"
+                styleClass="return-button" />
+
+        <ImageView layoutX="50.0" layoutY="20.0" fitWidth="120.0" fitHeight="120.0">
+            <image>
+                <Image url="@/image/logobus.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>

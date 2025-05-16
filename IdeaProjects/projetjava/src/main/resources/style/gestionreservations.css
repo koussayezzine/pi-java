@@ -1,0 +1,76 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #e3f2fd, #ffffff);
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-padding: 20;
+}
+
+/* Titre principal */
+.label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0d47a1;
+}
+
+/* Champs de texte */
+.text-field {
+    -fx-pref-width: 180px;
+    -fx-padding: 8 12;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #90caf9;
+    -fx-border-width: 1;
+    -fx-background-color: white;
+}
+
+/* Boutons standards */
+.button {
+    -fx-background-color: linear-gradient(to right, #42a5f5, #1e88e5);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0.2, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to right, #1e88e5, #1565c0);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* TableView stylée */
+.table-view {
+    -fx-border-color: #bbdefb;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4, 0.2, 0, 1);
+}
+
+.table-column {
+    -fx-alignment: CENTER-LEFT;
+    -fx-font-size: 13px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #64b5f6;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 28px;
+    -fx-background-color: #64b5f6;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Messages */
+#errorLabel {
+    -fx-text-fill: #d32f2f;
+    -fx-font-weight: bold;
+}
+
+#noteLabel {
+    -fx-text-fill: #388e3c;
+    -fx-font-weight: bold;
+}
