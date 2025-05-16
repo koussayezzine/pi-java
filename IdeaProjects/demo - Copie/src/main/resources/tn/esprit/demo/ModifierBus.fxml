@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+
+<AnchorPane prefHeight="700" prefWidth="1000" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.demo.controllers.ModifierBusController">
+    <children>
+        <VBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <!-- En-tête -->
+            <HBox alignment="CENTER" styleClass="header-box">
+                <Text styleClass="header-text" text="Modifier un Bus" />
+            </HBox>
+            
+            <HBox alignment="CENTER" spacing="30">
+                <!-- Formulaire de modification -->
+                <VBox styleClass="modern-card" spacing="20" prefWidth="500">
+                    <padding>
+                        <Insets top="20" right="30" bottom="20" left="30" />
+                    </padding>
+                    
+                    <Label text="Informations du Bus" styleClass="card-title" />
+                    
+                    <HBox spacing="20">
+                        <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="id-hidden" visible="false">
+                            <Label text="ID:" />
+                            <TextField fx:id="idField" styleClass="modern-field" editable="false" />
+                        </VBox>
+                        
+                        <VBox spacing="10" HBox.hgrow="ALWAYS">
+                            <Label text="Modèle:" />
+                            <TextField fx:id="modeleField" styleClass="modern-field" promptText="Ex: Mercedes Citaro" />
+                        </VBox>
+                    </HBox>
+                    
+                    <HBox spacing="20">
+                        <VBox spacing="10" HBox.hgrow="ALWAYS">
+                            <Label text="Capacité:" />
+                            <TextField fx:id="capaciteField" styleClass="modern-field" promptText="Ex: 50" />
+                        </VBox>
+                        
+                        <VBox spacing="10" HBox.hgrow="ALWAYS">
+                            <Label text="Plaque d'immatriculation:" />
+                            <TextField fx:id="plaqueImmatField" styleClass="modern-field" promptText="Ex: 123 TUN 4567" />
+                        </VBox>
+                    </HBox>
+                    
+                    <HBox spacing="20">
+                        <VBox spacing="10" HBox.hgrow="ALWAYS">
+                            <Label text="Type:" />
+                            <ComboBox fx:id="typeComboBox" prefWidth="150.0" promptText="Sélectionner un type" />
+                        </VBox>
+                        
+                        <VBox spacing="10" HBox.hgrow="ALWAYS">
+                            <Label text="Tarif:" />
+                            <TextField fx:id="tarifField" styleClass="modern-field" promptText="Ex: 2.50 DT" />
+                        </VBox>
+                    </HBox>
+                    
+                    <HBox spacing="20">
+                        <VBox spacing="10" HBox.hgrow="ALWAYS">
+                            <Label text="Itinéraire:" />
+                            <ComboBox fx:id="itineraireComboBox" prefWidth="150.0" promptText="Sélectionner un itinéraire" />
+                        </VBox>
+                        
+                        <VBox spacing="10" HBox.hgrow="ALWAYS">
+                            <Label text="Statut:" />
+                            <ComboBox fx:id="statusComboBox" prefWidth="150.0" promptText="Sélectionner un statut" />
+                        </VBox>
+                    </HBox>
+                    
+                    <HBox alignment="CENTER" spacing="20.0">
+                        <Button text="Enregistrer" styleClass="wave-btn" onAction="#modifierBus" />
+                        <Button fx:id="retourButton" styleClass="btn-secondary" text="Retour" onAction="#retour" />
+                    </HBox>
+                </VBox>
+                
+                <!-- Carte de localisation -->
+                <VBox styleClass="modern-card" spacing="15" prefWidth="400">
+                    <padding>
+                        <Insets top="20" right="30" bottom="20" left="30" />
+                    </padding>
+                    
+                    <Label text="Définir la position actuelle" styleClass="card-title" />
+                    <StackPane fx:id="mapContainer" styleClass="map-container" prefHeight="300" />
+                    <Label text="Cliquez sur la carte pour définir la position actuelle du bus" />
+                    <HBox spacing="10">
+                        <Label text="Latitude:" />
+                        <TextField fx:id="latitudeField" styleClass="modern-field" prefWidth="100" />
+                        <Label text="Longitude:" />
+                        <TextField fx:id="longitudeField" styleClass="modern-field" prefWidth="100" />
+                        <Button text="Définir" onAction="#definirPosition" styleClass="btn-primary" />
+                    </HBox>
+                </VBox>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

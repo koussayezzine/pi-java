@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane fx:id="rootPane" prefHeight="700" prefWidth="1000" stylesheets="@style.css"
+            xmlns="http://javafx.com/javafx/21.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tn.esprit.demo.controllers.DashboardController">
+    <children>
+        <VBox spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            
+            <!-- En-tête avec animation -->
+            <HBox alignment="CENTER" spacing="20" styleClass="header-box">
+                <Text fx:id="welcomeText" styleClass="header-text" text="Bienvenue dans votre système de gestion" />
+                <Text fx:id="timeText" text="Heure: 00:00:00" styleClass="header-text" />
+            </HBox>
+            
+            <!-- Contenu principal -->
+            <HBox spacing="20" alignment="CENTER">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20" />
+                </padding>
+                
+                <!-- Menu de navigation -->
+                <VBox spacing="10" styleClass="modern-card" prefWidth="200">
+                    <Label text="Menu Principal" styleClass="card-title" />
+                    <Button text="Gestion des Bus" onAction="#handleProduit" styleClass="wave-btn" maxWidth="Infinity" />
+                    <Button text="Gestion des Itinéraires" onAction="#handleService" styleClass="wave-btn" maxWidth="Infinity" />
+                    <Button text="Statistiques" onAction="#handleStatistiques" styleClass="wave-btn" maxWidth="Infinity" />
+                    <Button text="Tableau de Bord" onAction="#handleDashboard" styleClass="wave-btn" maxWidth="Infinity" />
+                </VBox>
+                
+                <!-- Contenu principal -->
+                <VBox spacing="20" HBox.hgrow="ALWAYS">
+                    <!-- Météo et trafic -->
+                    <HBox spacing="20">
+                        <VBox styleClass="modern-card" HBox.hgrow="ALWAYS">
+                            <Label text="Météo" styleClass="card-title" />
+                            <Label fx:id="weatherLabel" text="Chargement..." />
+                            <Button text="Actualiser" onAction="#refreshWeather" styleClass="wave-btn" />
+                        </VBox>
+                        
+                        <VBox styleClass="modern-card" HBox.hgrow="ALWAYS">
+                            <Label text="Informations Trafic" styleClass="card-title" />
+                            <Label fx:id="trafficStatusLabel" text="Chargement..." />
+                            <VBox fx:id="trafficContainer" spacing="5" />
+                            <Button text="Actualiser" onAction="#refreshTrafficInfo" styleClass="wave-btn" />
+                        </VBox>
+                    </HBox>
+                    
+                    <!-- Graphique et carte -->
+                    <HBox spacing="20">
+                        <VBox styleClass="modern-card" HBox.hgrow="ALWAYS">
+                            <Label text="Répartition des Bus" styleClass="card-title" />
+                            <PieChart fx:id="busTypeChart" prefHeight="200" />
+                        </VBox>
+                        
+                        <VBox styleClass="modern-card" HBox.hgrow="ALWAYS">
+                            <Label text="Localisation des Bus" styleClass="card-title" />
+                            <!-- Conteneur de carte avec taille réduite -->
+                            <StackPane fx:id="mapContainer" styleClass="map-container" 
+                                       minWidth="250" prefWidth="250" maxWidth="250"
+                                       minHeight="200" prefHeight="200" maxHeight="200"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+
+<AnchorPane prefHeight="700" prefWidth="1000" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.demo.controllers.AfficherItinerairesController">
+    <children>
+        <VBox spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            
+            <!-- En-tête animé -->
+            <HBox alignment="CENTER" styleClass="header-box">
+                <Text styleClass="header-text" text="Gestion des Itinéraires">
+                    <effect>
+                        <DropShadow color="#3498db" radius="5" />
+                    </effect>
+                </Text>
+            </HBox>
+            
+            <!-- Barre de recherche et filtres -->
+            <HBox alignment="CENTER" spacing="15" styleClass="search-container">
+                <padding>
+                    <Insets left="20" right="20" />
+                </padding>
+                
+                <TextField fx:id="searchField" promptText="Rechercher un itinéraire..." styleClass="search-field" HBox.hgrow="ALWAYS" />
+                <Button text="Rechercher" styleClass="action-button" onAction="#handleSearch" />
+                <Button text="Réinitialiser" styleClass="action-button" onAction="#refreshData" />
+            </HBox>
+            
+            <!-- Ajoutez ce label pour les messages de statut -->
+            <HBox alignment="CENTER" VBox.vgrow="NEVER">
+                <padding>
+                    <Insets bottom="10" />
+                </padding>
+                <Label fx:id="statusLabel" styleClass="status-label" visible="false" />
+            </HBox>
+            
+            <!-- Tableau des itinéraires -->
+            <HBox VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets left="20" right="20" />
+                </padding>
+                
+                <TableView fx:id="tableView" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <!-- Supprimez ou commentez cette ligne pour masquer la colonne ID -->
+                        <!-- <TableColumn fx:id="idColumn" prefWidth="50" text="ID" /> -->
+                        <TableColumn fx:id="villeDepartColumn" text="Ville de départ" prefWidth="150"/>
+                        <TableColumn fx:id="villeArriveeColumn" text="Ville d'arrivée" prefWidth="150"/>
+                        <TableColumn fx:id="arretsColumn" text="Arrêts" prefWidth="200"/>
+                        <TableColumn fx:id="distanceColumn" text="Distance (km)" prefWidth="100"/>
+                        <TableColumn fx:id="dureeEstimeeColumn" text="Durée" prefWidth="100"/>
+                    </columns>
+                </TableView>
+            </HBox>
+            
+            <!-- Boutons d'action -->
+            <HBox spacing="20" styleClass="action-buttons-container">
+                <padding>
+                    <Insets bottom="20" left="20" right="20" />
+                </padding>
+                
+                <!-- Bouton Ajouter -->
+                <VBox alignment="CENTER" styleClass="action-button-box">
+                    <Button styleClass="circle-btn, add-btn" onAction="#goToAjouter">
+                        <graphic>
+                            <Text text="+" styleClass="btn-icon" />
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Ajouter un nouvel itinéraire" />
+                        </tooltip>
+                    </Button>
+                    <Label text="Ajouter" styleClass="btn-label" />
+                </VBox>
+                
+                <!-- Bouton Optimiser -->
+                <VBox alignment="CENTER" styleClass="action-button-box">
+                    <Button styleClass="circle-btn, optimize-btn" onAction="#optimiserItineraires">
+                        <graphic>
+                            <Text text="⟳" styleClass="btn-icon" />
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Optimiser les itinéraires avec les données en temps réel" />
+                        </tooltip>
+                    </Button>
+                    <Label text="Optimiser" styleClass="btn-label" />
+                </VBox>
+                
+                <!-- Bouton Modifier -->
+                <VBox alignment="CENTER" styleClass="action-button-box">
+                    <Button styleClass="circle-btn, edit-btn" onAction="#goToModifier">
+                        <graphic>
+                            <Text text="✎" styleClass="btn-icon" />
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Modifier l'itinéraire sélectionné" />
+                        </tooltip>
+                    </Button>
+                    <Label text="Modifier" styleClass="btn-label" />
+                </VBox>
+                
+                <!-- Bouton Supprimer -->
+                <VBox alignment="CENTER" styleClass="action-button-box">
+                    <Button styleClass="circle-btn, delete-btn" onAction="#goToSupprimer">
+                        <graphic>
+                            <Text text="✕" styleClass="btn-icon" />
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Supprimer l'itinéraire sélectionné" />
+                        </tooltip>
+                    </Button>
+                    <Label text="Supprimer" styleClass="btn-label" />
+                </VBox>
+                
+                <!-- Espace flexible pour pousser le bouton Retour à droite -->
+                <Region HBox.hgrow="ALWAYS" />
+                
+                <!-- Bouton Retour -->
+                <VBox alignment="CENTER" styleClass="action-button-box">
+                    <Button styleClass="circle-btn, back-btn" onAction="#goBack">
+                        <graphic>
+                            <Text text="⟵" styleClass="btn-icon" />
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Retour au tableau de bord" />
+                        </tooltip>
+                    </Button>
+                    <Label text="Retour" styleClass="btn-label" />
+                </VBox>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

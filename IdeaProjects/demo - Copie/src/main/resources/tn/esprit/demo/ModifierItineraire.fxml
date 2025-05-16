@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+
+<AnchorPane prefHeight="700" prefWidth="1000" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.demo.controllers.ModifierItineraireController">
+    <children>
+        <VBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <!-- En-tête -->
+            <HBox alignment="CENTER" styleClass="header-box">
+                <Text styleClass="header-text" text="Modifier un Itinéraire">
+                    <effect>
+                        <DropShadow color="#3498db" radius="5" />
+                    </effect>
+                </Text>
+            </HBox>
+            
+            <!-- Formulaire -->
+            <VBox spacing="15" styleClass="form-container" maxWidth="600">
+                <padding>
+                    <Insets top="20" right="30" bottom="20" left="30" />
+                </padding>
+                
+                <!-- Ville de départ -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Ville de départ:" styleClass="form-label" />
+                    <TextField fx:id="villeDepartField" promptText="Entrez la ville de départ" styleClass="modern-field" HBox.hgrow="ALWAYS" />
+                </HBox>
+                
+                <!-- Ville d'arrivée -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Ville d'arrivée:" styleClass="form-label" />
+                    <TextField fx:id="villeArriveeField" promptText="Entrez la ville d'arrivée" styleClass="modern-field" HBox.hgrow="ALWAYS" />
+                </HBox>
+                
+                <!-- Arrêts -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Arrêts:" styleClass="form-label" />
+                    <TextField fx:id="arretsField" promptText="Entrez les arrêts (séparés par des virgules)" styleClass="modern-field" HBox.hgrow="ALWAYS" />
+                </HBox>
+                
+                <!-- Distance -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Distance (km):" styleClass="form-label" />
+                    <TextField fx:id="distanceField" promptText="Entrez la distance en km" styleClass="modern-field" HBox.hgrow="ALWAYS" />
+                </HBox>
+                
+                <!-- Durée estimée -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Durée estimée:" styleClass="form-label" />
+                    <TextField fx:id="dureeField" promptText="Entrez la durée estimée" styleClass="modern-field" HBox.hgrow="ALWAYS" />
+                </HBox>
+                
+                <!-- Message d'état -->
+                <Label fx:id="statusLabel" alignment="CENTER" styleClass="status-label" prefHeight="30" />
+                
+                <!-- Boutons -->
+                <HBox spacing="20" alignment="CENTER">
+                    <Button fx:id="modifierButton" text="Modifier" styleClass="wave-btn" onAction="#modifierItineraire" />
+                    <Button text="Annuler" styleClass="wave-btn" onAction="#goBack" />
+                </HBox>
+            </VBox>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.web.WebView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.shape.SVGPath?>
+
+<AnchorPane prefHeight="800" prefWidth="1200" stylesheets="@style.css"
+            xmlns="http://javafx.com/javafx/21" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="tn.esprit.demo.controllers.StatistiquesController">
+    <children>
+        <VBox fx:id="mainContainer" spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            
+            <!-- Bouton de retour en haut -->
+            <HBox alignment="CENTER_LEFT">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10" />
+                </padding>
+                <Button fx:id="backButton" text="Retour au Dashboard" onAction="#retourDashboard" styleClass="back-btn-prominent">
+                    <graphic>
+                        <SVGPath content="M20,11H7.83l5.59-5.59L12,4l-8,8l8,8l1.41-1.41L7.83,13H20V11z" fill="WHITE" />
+                    </graphic>
+                </Button>
+            </HBox>
+            
+            <!-- En-tête avec animation -->
+            <HBox alignment="CENTER" spacing="20" styleClass="header-box">
+                <Text styleClass="header-text" text="Rapports et Statistiques">
+                    <effect>
+                        <DropShadow color="#3498db" radius="5" />
+                    </effect>
+                </Text>
+                <Button styleClass="refresh-btn" text="Actualiser" onAction="#refreshData">
+                    <graphic>
+                        <SVGPath content="M12,4V1L8,5l4,4V6c3.31,0,6,2.69,6,6c0,1.01-0.25,1.97-0.7,2.8l1.46,1.46C19.54,15.03,20,13.57,20,12C20,7.58,16.42,4,12,4z M12,18c-3.31,0-6-2.69-6-6c0-1.01,0.25-1.97,0.7-2.8L5.24,7.74C4.46,8.97,4,10.43,4,12c0,4.42,3.58,8,8,8v3l4-4l-4-4V18z" 
+                              fill="WHITE" />
+                    </graphic>
+                </Button>
+            </HBox>
+            
+            <!-- Filtres et période avec animation -->
+            <HBox spacing="15" alignment="CENTER" styleClass="filter-container">
+                <padding>
+                    <Insets top="10" right="20" bottom="10" left="20" />
+                </padding>
+                
+                <Label text="Période:" styleClass="filter-label" />
+                <ComboBox fx:id="periodeComboBox" prefWidth="150" promptText="Sélectionner">
+                    <tooltip>
+                        <Tooltip text="Sélectionnez la période pour les statistiques" />
+                    </tooltip>
+                </ComboBox>
+                
+                <Label text="Type de bus:" styleClass="filter-label" />
+                <ComboBox fx:id="typeBusComboBox" prefWidth="150" promptText="Tous">
+                    <tooltip>
+                        <Tooltip text="Filtrer par type de bus" />
+                    </tooltip>
+                </ComboBox>
+                
+                <Label text="Itinéraire:" styleClass="filter-label" />
+                <ComboBox fx:id="itineraireComboBox" prefWidth="200" promptText="Tous">
+                    <tooltip>
+                        <Tooltip text="Filtrer par itinéraire" />
+                    </tooltip>
+                </ComboBox>
+                
+                <Button styleClass="apply-filter-btn" text="Appliquer" onAction="#applyFilters">
+                    <graphic>
+                        <SVGPath content="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" 
+                              fill="WHITE" />
+                    </graphic>
+                </Button>
+                
+                <Button text="Comparaison Bus/Itinéraires" onAction="#afficherComparaison" styleClass="action-button">
+                    <tooltip>
+                        <Tooltip text="Afficher les statistiques comparatives entre bus et itinéraires" />
+                    </tooltip>
+                </Button>
+            </HBox>
+            
+            <!-- Ajoutez ce conteneur pour les contrôles de comparaison après la section des filtres -->
+            <HBox fx:id="comparisonControls" spacing="15" alignment="CENTER" styleClass="filter-container" visible="false">
+                <padding>
+                    <Insets top="10" right="20" bottom="10" left="20" />
+                </padding>
+                
+                <Label text="Période de comparaison:" styleClass="filter-label" />
+                <ComboBox fx:id="comparisonPeriodeComboBox" prefWidth="150" promptText="Sélectionner">
+                    <tooltip>
+                        <Tooltip text="Sélectionnez la période de comparaison" />
+                    </tooltip>
+                </ComboBox>
+                
+                <Button styleClass="apply-filter-btn" text="Appliquer comparaison" onAction="#applyComparison">
+                    <graphic>
+                        <SVGPath content="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" 
+                              fill="WHITE" />
+                    </graphic>
+                </Button>
+            </HBox>
+            
+            <!-- Indicateurs clés de performance avec animations -->
+            <HBox spacing="20" alignment="CENTER">
+                <padding>
+                    <Insets top="10" right="20" bottom="10" left="20" />
+                </padding>
+                
+                <VBox styleClass="kpi-card" alignment="CENTER" prefWidth="220" prefHeight="120">
+                    <Label styleClass="kpi-title" text="Taux d'occupation moyen" />
+                    <Label fx:id="tauxOccupationLabel" styleClass="kpi-value" text="0%">
+                        <effect>
+                            <Glow level="0.0" />
+                        </effect>
+                    </Label>
+                    <ProgressBar fx:id="tauxOccupationProgress" progress="0.0" prefWidth="180" styleClass="custom-progress" />
+                    <Label fx:id="tauxOccupationEvolution" styleClass="kpi-evolution" text="+0% vs période précédente" />
+                </VBox>
+                
+                <VBox styleClass="kpi-card" alignment="CENTER" prefWidth="220" prefHeight="120">
+                    <Label styleClass="kpi-title" text="Ponctualité" />
+                    <Label fx:id="ponctualiteLabel" styleClass="kpi-value" text="0%">
+                        <effect>
+                            <Glow level="0.0" />
+                        </effect>
+                    </Label>
+                    <ProgressBar fx:id="ponctualiteProgress" progress="0.0" prefWidth="180" styleClass="custom-progress" />
+                    <Label fx:id="ponctualiteEvolution" styleClass="kpi-evolution" text="+0% vs période précédente" />
+                </VBox>
+                
+                <VBox styleClass="kpi-card" alignment="CENTER" prefWidth="220" prefHeight="120">
+                    <Label styleClass="kpi-title" text="Consommation moyenne" />
+                    <Label fx:id="consommationLabel" styleClass="kpi-value" text="0 L/100km">
+                        <effect>
+                            <Glow level="0.0" />
+                        </effect>
+                    </Label>
+                    <ProgressBar fx:id="consommationProgress" progress="0.0" prefWidth="180" styleClass="custom-progress-inverse" />
+                    <Label fx:id="consommationEvolution" styleClass="kpi-evolution" text="-0% vs période précédente" />
+                </VBox>
+                
+                <VBox styleClass="kpi-card" alignment="CENTER" prefWidth="220" prefHeight="120">
+                    <Label styleClass="kpi-title" text="Satisfaction clients" />
+                    <Label fx:id="satisfactionLabel" styleClass="kpi-value" text="0/5">
+                        <effect>
+                            <Glow level="0.0" />
+                        </effect>
+                    </Label>
+                    <HBox fx:id="starsContainer" alignment="CENTER" spacing="5" />
+                    <Label fx:id="satisfactionEvolution" styleClass="kpi-evolution" text="+0% vs période précédente" />
+                </VBox>
+            </HBox>
+            
+            <!-- Graphiques principaux avec animations -->
+            <VBox fx:id="chartsContainer" spacing="20" alignment="CENTER">
+                <HBox spacing="20" alignment="CENTER">
+                    <padding>
+                        <Insets top="10" right="20" bottom="10" left="20" />
+                    </padding>
+                    
+                    <!-- Conteneur pour le graphique d'évolution -->
+                    <VBox spacing="10" styleClass="chart-container" prefHeight="350" prefWidth="600">
+                        <Label text="Évolution du nombre de passagers" styleClass="section-title"/>
+                        <LineChart fx:id="evolutionChart" title="Évolution des passagers" 
+                                   legendSide="RIGHT" animated="true" 
+                                   prefHeight="300" prefWidth="600">
+                            <xAxis>
+                                <CategoryAxis label="Mois" />
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis label="Nombre de passagers" />
+                            </yAxis>
+                        </LineChart>
+                    </VBox>
+
+                    <!-- Répartition par type de bus -->
+                    <VBox styleClass="chart-card" prefWidth="360" prefHeight="250">
+                        <Label text="Répartition par type de bus" styleClass="chart-title" />
+                        <PieChart fx:id="typeBusChart" title="Types de bus" labelsVisible="true" legendVisible="true" styleClass="animated-chart" />
+                    </VBox>
+
+                    <!-- Répartition par itinéraire -->
+                    <VBox styleClass="chart-card" prefWidth="360" prefHeight="250">
+                        <Label text="Répartition par itinéraire" styleClass="chart-title" />
+                        <PieChart fx:id="itineraireChart" title="Itinéraires populaires" labelsVisible="true" legendVisible="true" styleClass="animated-chart" />
+                    </VBox>
+
+                    <!-- Incidents par type -->
+                    <VBox styleClass="chart-card" prefWidth="360" prefHeight="250">
+                        <Label text="Incidents par catégorie" styleClass="chart-title" />
+                        <BarChart fx:id="incidentsChart" legendVisible="false" styleClass="animated-chart">
+                            <xAxis>
+                                <CategoryAxis label="Type d'incident" />
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis label="Nombre" />
+                            </yAxis>
+                        </BarChart>
+                    </VBox>
+                </HBox>
+                
+                <!-- Graphique comparatif avec animation -->
+                <VBox styleClass="chart-card" prefWidth="740" prefHeight="300">
+                    <Label text="Comparaison mensuelle" styleClass="chart-title" />
+                    <LineChart fx:id="comparativeChart" animated="true" createSymbols="true" styleClass="animated-chart">
+                        <xAxis>
+                            <CategoryAxis label="Mois" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Valeur" />
+                        </yAxis>
+                    </LineChart>
+                </VBox>
+            </VBox>
+            
+            <!-- Boutons de navigation avec effets -->
+            <HBox alignment="CENTER" spacing="20">
+                <padding>
+                    <Insets bottom="20" />
+                </padding>
+                <Button text="Exporter en PDF" onAction="#exportPDF" styleClass="action-button"/>
+                <Button text="Retour au Dashboard" styleClass="back-btn" onAction="#retourDashboard">
+                    <graphic>
+                        <SVGPath content="M20,11H7.83l5.59-5.59L12,4l-8,8l8,8l1.41-1.41L7.83,13H20V11z" 
+                              fill="WHITE" />
+                    </graphic>
+                </Button>
+            </HBox>
+            
+            <!-- Bouton de retour flottant simplifié -->
+            <Button fx:id="backButton" text="Retour au Dashboard" styleClass="back-btn" onAction="#retourDashboard">
+                <graphic>
+                    <SVGPath content="M20,11H7.83l5.59-5.59L12,4l-8,8l8,8l1.41-1.41L7.83,13H20V11z" 
+                          fill="WHITE" />
+                </graphic>
+            </Button>
+            
+            <!-- Bouton de personnalisation -->
+            <Button fx:id="customizeButton" text="Personnaliser" styleClass="customize-btn" onAction="#showCustomizeDialog">
+                <graphic>
+                    <SVGPath content="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" 
+                          fill="WHITE" />
+                </graphic>
+            </Button>
+        </VBox>
+    </children>
+</AnchorPane>
