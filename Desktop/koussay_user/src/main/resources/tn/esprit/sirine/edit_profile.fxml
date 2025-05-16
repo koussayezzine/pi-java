@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tn.esprit.sirine.controller.EditProfileController"
+            prefWidth="600" prefHeight="400">
+
+    <VBox spacing="15" alignment="CENTER" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50">
+        <Label text="Edit Profile" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+
+        <TextField fx:id="usernameField" promptText="Username" />
+        <TextField fx:id="emailField" promptText="Email" />
+        <PasswordField fx:id="passwordField" promptText="New Password" />
+
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Save" onAction="#handleSave" />
+            <Button text="Cancel" onAction="#handleCancel" />
+        </HBox>
+    </VBox>
+</AnchorPane>

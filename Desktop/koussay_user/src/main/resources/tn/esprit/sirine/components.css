@@ -1,0 +1,289 @@
+/* Card Components and Modern UI Elements */
+
+/* Card Base Style */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 4);
+    -fx-padding: 15px;
+    -fx-border-radius: 10px;
+}
+
+/* Card with hover effect */
+.card-hover {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);
+    -fx-padding: 15px;
+    -fx-border-radius: 10px;
+    -fx-transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 12, 0, 0, 4);
+    -fx-translate-y: -2px;
+}
+
+/* Card with border */
+.card-bordered {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-padding: 15px;
+}
+
+/* Card with accent color */
+.card-accent {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 4);
+    -fx-padding: 15px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #1fa0da;
+    -fx-border-width: 0 0 0 4px;
+}
+
+/* Card title */
+.card-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 0 0 10 0;
+}
+
+/* Card content */
+.card-content {
+    -fx-padding: 10 0 0 0;
+}
+
+/* Stat Card */
+.stat-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 4);
+    -fx-padding: 15px;
+    -fx-border-radius: 10px;
+    -fx-min-width: 200px;
+    -fx-min-height: 120px;
+}
+
+.stat-value {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.stat-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666666;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    -fx-hgap: 20px;
+    -fx-vgap: 20px;
+    -fx-padding: 20px;
+}
+
+/* Modern Buttons */
+.modern-button {
+    -fx-background-color: #1fa0da;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px 15px;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.modern-button:hover {
+    -fx-background-color: #1a8bbf;
+}
+
+.modern-button-secondary {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #333333;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px 15px;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+.modern-button-secondary:hover {
+    -fx-background-color: #e8e8e8;
+}
+
+.modern-button-danger {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px 15px;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.modern-button-danger:hover {
+    -fx-background-color: #c0392b;
+}
+
+/* Modern Search Field */
+.search-field {
+    -fx-background-color: white;
+    -fx-background-radius: 20px;
+    -fx-padding: 8px 15px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 20px;
+    -fx-border-width: 1px;
+    -fx-prompt-text-fill: #999999;
+}
+
+.search-field:focused {
+    -fx-border-color: #1fa0da;
+    -fx-effect: dropshadow(gaussian, rgba(31,160,218,0.2), 5, 0, 0, 0);
+}
+
+/* Table Styles */
+.modern-table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 5px;
+    -fx-padding: 0;
+}
+
+.modern-table-view .column-header-background {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 5px 5px 0 0;
+    -fx-padding: 5px 0;
+}
+
+.modern-table-view .column-header, .modern-table-view .filler {
+    -fx-background-color: transparent;
+    -fx-size: 35px;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #e0e0e0;
+}
+
+.modern-table-view .column-header .label {
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+}
+
+.modern-table-view .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-table-cell-border-color: transparent;
+}
+
+.modern-table-view .table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+.modern-table-view .table-row-cell:selected {
+    -fx-background-color: #e1f5fe;
+    -fx-text-fill: #333333;
+}
+
+/* Dashboard Section Title */
+.section-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 0 0 10 0;
+}
+
+/* Badge */
+.badge {
+    -fx-background-radius: 12px;
+    -fx-padding: 3px 8px;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.badge-primary {
+    -fx-background-color: #1fa0da;
+}
+
+.badge-success {
+    -fx-background-color: #2ecc71;
+}
+
+.badge-warning {
+    -fx-background-color: #f39c12;
+}
+
+.badge-danger {
+    -fx-background-color: #e74c3c;
+}
+
+/* Progress Bar */
+.modern-progress-bar {
+    -fx-background-color: #f0f0f0;
+    -fx-background-radius: 10px;
+    -fx-accent: #1fa0da;
+}
+
+.modern-progress-bar .track {
+    -fx-background-color: #f0f0f0;
+    -fx-background-radius: 10px;
+}
+
+.modern-progress-bar .bar {
+    -fx-background-radius: 10px;
+}
+
+/* Scroll Pane */
+.modern-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.modern-scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.modern-scroll-pane .scroll-bar:vertical,
+.modern-scroll-pane .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.modern-scroll-pane .scroll-bar:vertical .thumb,
+.modern-scroll-pane .scroll-bar:horizontal .thumb {
+    -fx-background-color: #cccccc;
+    -fx-background-radius: 5px;
+}
+
+.modern-scroll-pane .scroll-bar:vertical .thumb:hover,
+.modern-scroll-pane .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: #b3b3b3;
+}
+
+/* Divider */
+.divider {
+    -fx-background-color: #e0e0e0;
+    -fx-pref-height: 1px;
+    -fx-opacity: 0.8;
+}
+
+/* Avatar */
+.avatar {
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+}
+
+/* Tooltip */
+.tooltip {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+    -fx-background-radius: 4px;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 10px;
+}

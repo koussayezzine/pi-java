@@ -1,0 +1,63 @@
+/* styles.css */
+
+.root {
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+
+.search-field {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 6;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cbd5e0;
+    -fx-border-width: 1;
+}
+
+.blue-button {
+    -fx-background-color: #3182ce;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 25;
+    -fx-padding: 8 20;
+    -fx-cursor: hand;
+}
+
+.blue-button:hover {
+    -fx-background-color: #2b6cb0;
+}
+
+.blue-outline-button {
+    -fx-background-color: transparent;
+    -fx-border-color: #3182ce;
+    -fx-text-fill: #3182ce;
+    -fx-font-weight: bold;
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+    -fx-padding: 6 16;
+    -fx-cursor: hand;
+}
+
+.blue-outline-button:hover {
+    -fx-background-color: #ebf8ff;
+}
+
+.red-button {
+    -fx-background-color: #e53e3e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 25;
+    -fx-padding: 8 20;
+    -fx-cursor: hand;
+}
+
+.red-button:hover {
+    -fx-background-color: #c53030;
+}
+
+.styled-table {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 10;
+    -fx-padding: 10;
+    -fx-background-radius: 10;
+}

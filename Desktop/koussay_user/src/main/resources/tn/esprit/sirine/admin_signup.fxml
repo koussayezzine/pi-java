@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.image.Image?>
+<AnchorPane prefHeight="519.0" prefWidth="863.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="tn.esprit.sirine.controller.AdminSignUpController">
+    <stylesheets>
+        <URL value="@login.css" />
+    </stylesheets>
+    <children>
+        <VBox fx:id="signupBox" alignment="CENTER" layoutX="50" layoutY="30" prefHeight="435.0" prefWidth="270.0" spacing="10.0">
+            <Label style="-fx-font-size: 20;" text="Inscription Administrateur" />
+            <Label text="L'inscription des administrateurs a été désactivée." />
+            <Button onAction="#handleSignup" text="Essayer de s'inscrire" />
+            <Hyperlink onAction="#switchToLogin" text="Retour à la connexion" />
+            <Label fx:id="errorLabel" textFill="red" />
+        </VBox>
+        <ImageView fitHeight="470.0" fitWidth="377.0" layoutX="449.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/bus.jpg" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>

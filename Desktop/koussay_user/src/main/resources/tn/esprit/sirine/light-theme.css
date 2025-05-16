@@ -1,0 +1,203 @@
+/* Light Theme - Modern Desktop Application Style */
+
+/* Global styles */
+.root {
+    -fx-background-color: #f4f6fc;
+    -fx-text-fill: #333333;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-focus-color: #1fa0da;
+    -fx-faint-focus-color: #1fa0da22;
+}
+
+/* Sidebar */
+.sidebar {
+    -fx-background-color: #ffffff;
+    -fx-padding: 20px;
+    -fx-spacing: 10px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 1 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 2);
+}
+
+/* Profile info */
+.profile-container {
+    -fx-alignment: center;
+    -fx-spacing: 10px;
+    -fx-padding: 0 0 15 0;
+}
+
+.profile-name {
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.profile-role {
+    -fx-text-fill: #666666;
+    -fx-font-size: 13px;
+}
+
+/* Sidebar buttons */
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #555555;
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+    -fx-alignment: center-left;
+    -fx-padding: 10px 15px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #1fa0da;
+}
+
+.sidebar-button.active {
+    -fx-background-color: #e1f5fe;
+    -fx-text-fill: #1fa0da;
+    -fx-font-weight: bold;
+}
+
+/* Sidebar title */
+.sidebar-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 0 0 10 0;
+}
+
+/* Search field in sidebar */
+.sidebar .text-field {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 20px;
+    -fx-padding: 8px 15px;
+    -fx-prompt-text-fill: #999999;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 20px;
+    -fx-border-width: 1px;
+}
+
+.sidebar .text-field:focused {
+    -fx-border-color: #1fa0da;
+    -fx-background-color: white;
+}
+
+/* Card styles */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);
+    -fx-padding: 15px;
+}
+
+.card-hover:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 4);
+    -fx-translate-y: -2px;
+}
+
+/* Table styles */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 5px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #f5f5f5;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #e1f5fe;
+    -fx-text-fill: #333333;
+}
+
+/* Button styles */
+.button {
+    -fx-background-color: #1fa0da;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 12 30;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: #1a8bbf;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 3);
+    -fx-translate-y: -1px;
+}
+
+.button:pressed {
+    -fx-background-color: #0a6fa1;
+    -fx-translate-y: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0, 0, 1);
+}
+
+/* Tab pane */
+.tab-pane .tab {
+    -fx-background-color: #f0f0f0;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: white;
+    -fx-border-color: #1fa0da #e0e0e0 white #e0e0e0;
+    -fx-border-width: 2 1 0 1;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #1fa0da;
+}
+
+/* Scroll bar */
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #cccccc;
+}
+
+.scroll-bar:vertical .thumb:hover,
+.scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: #b3b3b3;
+}
+
+/* Progress bar */
+.progress-bar {
+    -fx-accent: #1fa0da;
+}
+
+/* Divider */
+.divider {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Badge */
+.badge {
+    -fx-text-fill: white;
+    -fx-background-radius: 12px;
+    -fx-padding: 3px 8px;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.badge-primary {
+    -fx-background-color: #1fa0da;
+}
+
+.badge-success {
+    -fx-background-color: #2ecc71;
+}
+
+.badge-warning {
+    -fx-background-color: #f39c12;
+}
+
+.badge-danger {
+    -fx-background-color: #e74c3c;
+}

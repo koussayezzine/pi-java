@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane prefHeight="700" prefWidth="1000" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.sirine.controller.AfficherBusController">
+    <children>
+        <VBox spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+            <!-- En-tête animé -->
+            <HBox alignment="CENTER" styleClass="header-box">
+                <Text styleClass="header-text" text="Gestion des Bus">
+                    <effect>
+                        <DropShadow color="#3498db" radius="5" />
+                    </effect>
+                </Text>
+            </HBox>
+
+            <!-- Barre de recherche et filtres -->
+            <HBox alignment="CENTER" spacing="15" styleClass="fade-in">
+                <padding>
+                    <Insets top="10" right="20" bottom="10" left="20" />
+                </padding>
+
+                <TextField fx:id="searchField" promptText="Rechercher par modèle..." styleClass="modern-field" prefWidth="300" />
+                <ComboBox fx:id="filterTypeComboBox" promptText="Filtrer par type" prefWidth="150" />
+                <Button text="Rechercher" styleClass="wave-btn" onAction="#handleSearch" />
+                <Button text="Réinitialiser" styleClass="wave-btn" onAction="#resetFilters" />
+            </HBox>
+
+            <!-- Tableau des bus avec localisation en temps réel -->
+            <HBox spacing="20" VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets left="20" right="20" />
+                </padding>
+
+                <!-- Tableau des bus (prend plus d'espace) -->
+                <VBox spacing="10" HBox.hgrow="ALWAYS">
+                    <TableView fx:id="busTableView" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="idBusColumn" prefWidth="50" text="ID" visible="false" />
+                            <TableColumn fx:id="modeleColumn" prefWidth="100" text="Modèle" />
+                            <TableColumn fx:id="capaciteColumn" prefWidth="80" text="Capacité" />
+                            <TableColumn fx:id="plaqueImmatColumn" prefWidth="100" text="Immatriculation" />
+                            <TableColumn fx:id="idItineraireColumn" prefWidth="80" text="Itinéraire" />
+                            <TableColumn fx:id="typeColumn" prefWidth="80" text="Type" />
+                            <TableColumn fx:id="tarifColumn" prefWidth="80" text="Tarif" />
+                            <TableColumn fx:id="statusColumn" prefWidth="80" text="Statut" />
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <!-- Carte de localisation (taille fixe) -->
+                <VBox spacing="10" maxWidth="350" prefWidth="350">
+                    <Label text="Localisation en temps réel" styleClass="section-title"/>
+                    <StackPane fx:id="busMapContainer" styleClass="map-container"
+                               maxHeight="300" maxWidth="300"
+                               prefHeight="300" prefWidth="300"
+                               minHeight="300" minWidth="300"/>
+                </VBox>
+            </HBox>
+
+            <!-- Boutons d'action créatifs -->
+            <HBox alignment="CENTER" spacing="30" styleClass="action-buttons-container">
+                <padding>
+                    <Insets bottom="30" top="10" />
+                </padding>
+
+                <!-- Bouton Ajouter -->
+                <VBox alignment="CENTER" styleClass="action-button-box">
+                    <Button styleClass="circle-btn, add-btn" onAction="#handleAjouter">
+                        <graphic>
+                            <Text text="+" styleClass="btn-icon" />
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Ajouter un nouveau bus" />
+                        </tooltip>
+                    </Button>
+                    <Label text="Ajouter" styleClass="btn-label" />
+                </VBox>
+
+                <!-- Bouton Modifier -->
+                <VBox alignment="CENTER" styleClass="action-button-box">
+                    <Button styleClass="circle-btn, edit-btn" onAction="#goToModifier">
+                        <graphic>
+                            <Text text="✎" styleClass="btn-icon" />
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Modifier le bus sélectionné" />
+                        </tooltip>
+                    </Button>
+                    <Label text="Modifier" styleClass="btn-label" />
+                </VBox>
+
+                <!-- Bouton Supprimer -->
+                <VBox alignment="CENTER" styleClass="action-button-box">
+                    <Button styleClass="circle-btn, delete-btn" onAction="#goToSupprimer">
+                        <graphic>
+                            <Text text="✕" styleClass="btn-icon" />
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Supprimer le bus sélectionné" />
+                        </tooltip>
+                    </Button>
+                    <Label text="Supprimer" styleClass="btn-label" />
+                </VBox>
+
+                <!-- Bouton Retour -->
+                <VBox alignment="CENTER" styleClass="action-button-box">
+                    <Button styleClass="circle-btn, back-btn" onAction="#handleRetour">
+                        <graphic>
+                            <Text text="⟵" styleClass="btn-icon" />
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Retour au tableau de bord" />
+                        </tooltip>
+                    </Button>
+                    <Label text="Retour" styleClass="btn-label" />
+                </VBox>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@style/ajouterreservation.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.AfficherReservation">
+   <children>
+      <!-- Zone de recherche -->
+      <VBox layoutX="20.0" layoutY="10.0" spacing="10.0">
+         <Label prefHeight="48.0" prefWidth="242.0" styleClass="title-label" text="Reservation disponibles" />
+      </VBox>
+      <ImageView layoutX="50.0" layoutY="20.0" fitWidth="120.0" fitHeight="120.0">
+         <image>
+            <Image url="@images/logobus.png" />
+         </image>
+      </ImageView>
+      <!-- TableView pour afficher les réservations -->
+      <TableView fx:id="tableView" layoutX="14.0" layoutY="64.0" prefHeight="308.0" prefWidth="570.0" styleClass="custom-table">
+         <columns>
+            <TableColumn fx:id="colNomUtilisateur" prefWidth="120.0" text="Nom Utilisateur" />
+            <TableColumn fx:id="colEmail" prefWidth="140.0" text="Email" />
+            <TableColumn fx:id="colLieuDepart" prefWidth="100.0" text="Lieu Départ" />
+            <TableColumn fx:id="colLieuArrive" prefWidth="99.2" text="Lieu Arrivée" />
+            <TableColumn fx:id="colStatut" prefWidth="110.4" text="Statut" />
+         </columns>
+      </TableView>
+
+      <!-- Zone pour afficher les détails d'une réservation -->
+      <HBox layoutX="20.0" layoutY="320.0" spacing="10.0" />
+
+      <!-- Message label -->
+      <Label fx:id="messageLabel" layoutX="361.0" layoutY="59.0" prefHeight="36.0" prefWidth="238.0" styleClass="message-label" textFill="red" />
+
+   </children>
+</AnchorPane>

@@ -1,0 +1,130 @@
+/* login.css - Modern Desktop Application Style */
+
+/* Arrière-plan général */
+.anchor-pane {
+    -fx-background-color: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    -fx-background-radius: 10;
+}
+
+/* Zone de formulaire - Style moderne */
+.vbox {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-background-radius: 15;
+    -fx-padding: 30;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 15, 0, 0, 10);
+    -fx-border-color: #1fa0da;
+    -fx-border-radius: 15;
+    -fx-border-width: 1;
+    -fx-alignment: center;
+}
+
+/* Labels - Style moderne */
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: normal;
+}
+
+/* Titre de la page de connexion */
+.login-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 2, 0, 0, 1);
+    -fx-padding: 0 0 20 0;
+}
+
+/* Champs de saisie - Style moderne */
+.text-field, .password-field {
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-border-color: transparent;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 12;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0, 0, 1);
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-background-color: white;
+    -fx-border-color: #1fa0da;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, #1fa0da, 8, 0.4, 0, 0);
+}
+
+/* Bouton de connexion - Style moderne */
+.button {
+    -fx-background-color: #1fa0da;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 12 30;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 2);
+    -fx-min-width: 150px;
+}
+
+.button:hover {
+    -fx-background-color: #0c8bca;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 3);
+    -fx-translate-y: -1px;
+}
+
+.button:pressed {
+    -fx-background-color: #0a6fa1;
+    -fx-translate-y: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 4, 0, 0, 1);
+}
+
+/* Hyperlink - Style moderne */
+.hyperlink {
+    -fx-text-fill: #a0e4ff;
+    -fx-border-color: transparent;
+    -fx-padding: 4 0;
+    -fx-font-size: 13px;
+}
+
+.hyperlink:hover {
+    -fx-text-fill: white;
+    -fx-underline: true;
+}
+
+.hyperlink:visited {
+    -fx-border-color: transparent;
+}
+
+/* Erreur - Style moderne */
+#errorLabel {
+    -fx-text-fill: #ff6b6b;
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 0, 0, 0.1);
+    -fx-background-radius: 4;
+    -fx-padding: 5;
+    -fx-alignment: center;
+}
+
+/* Image container */
+.image-container {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 15, 0, 0, 5);
+    -fx-background-radius: 10;
+    -fx-background-color: rgba(0, 0, 0, 0.3);
+    -fx-padding: 30px;
+    -fx-alignment: center;
+}
+
+/* App title */
+.app-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 0, 1);
+}
+
+/* Subtitle */
+.subtitle {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+    -fx-opacity: 0.9;
+    -fx-text-alignment: center;
+}

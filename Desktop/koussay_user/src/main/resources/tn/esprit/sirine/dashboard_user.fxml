@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tn.esprit.sirine.controller.UserDashboardController"
+            prefWidth="800.0" prefHeight="600.0">
+
+    <stylesheets>
+        <URL value="@components.css" />
+        <URL value="@light-theme.css" />
+    </stylesheets>
+
+    <!-- Sidebar à gauche -->
+    <left>
+        <fx:include source="sidebar.fxml"/>
+    </left>
+
+    <!-- Contenu principal -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="modern-scroll-pane">
+            <VBox spacing="20" style="-fx-padding: 20;">
+                <!-- En-tête du tableau de bord -->
+                <Label text="Tableau de bord utilisateur" styleClass="section-title" />
+                <Label text="Bienvenue sur votre espace personnel" style="-fx-text-fill: #666666; -fx-font-size: 14px;" />
+
+                <!-- Contenu simple -->
+                <VBox styleClass="card" spacing="15">
+                    <Label text="Informations utilisateur" styleClass="card-title" />
+                    <Label text="Cette section affichera vos informations personnelles et vos activités récentes." />
+                </VBox>
+
+                <!-- Section des lignes de bus -->
+                <Label text="Lignes de bus disponibles" styleClass="section-title" />
+                <VBox styleClass="card" spacing="15">
+                    <Label text="Les lignes de bus seront affichées ici." />
+                    <Label text="Vous pourrez consulter les horaires et réserver vos trajets." />
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

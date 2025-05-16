@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="tn.esprit.sirine.controller.UserController" prefWidth="800" prefHeight="600">
+    <children>
+        <VBox spacing="10.0" layoutX="20.0" layoutY="20.0" prefWidth="760.0">
+            <TableView fx:id="userTable" prefHeight="300" prefWidth="700">
+                <columns>
+                    <TableColumn fx:id="nomColumn" text="Nom" />
+                    <TableColumn fx:id="prenomColumn" text="Prénom" />
+                    <TableColumn fx:id="emailColumn" text="Email" />
+                    <TableColumn fx:id="roleColumn" text="Rôle" />
+                </columns>
+            </TableView>
+
+            <HBox spacing="10.0">
+                <TextField fx:id="nomField" promptText="Nom" />
+                <TextField fx:id="prenomField" promptText="Prénom" />
+                <TextField fx:id="emailField" promptText="Email" />
+                <TextField fx:id="mdpField" promptText="Mot de passe" />
+                <TextField fx:id="roleField" promptText="Rôle" />
+            </HBox>
+
+            <HBox spacing="10.0">
+                <Button text="Modifier" onAction="#handleModifier" />
+                <Button text="Supprimer" onAction="#handleSupprimer" />
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

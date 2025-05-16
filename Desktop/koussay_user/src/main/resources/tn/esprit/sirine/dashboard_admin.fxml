@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tn.esprit.sirine.controller.AdminDashboardController"
+            prefWidth="900.0" prefHeight="700.0">
+
+    <stylesheets>
+        <URL value="@components.css" />
+        <URL value="@light-theme.css" />
+    </stylesheets>
+
+    <left>
+        <fx:include source="sidebar.fxml"/>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="modern-scroll-pane">
+            <VBox spacing="20" style="-fx-padding: 20;">
+                <!-- En-tête du tableau de bord -->
+                <Label fx:id="welcomeLabel" text="Tableau de bord administrateur" styleClass="section-title" />
+
+                <!-- Onglets pour la gestion -->
+                <TabPane styleClass="modern-tab-pane">
+                    <!-- Onglet Gestion des utilisateurs -->
+                    <Tab text="Gestion des utilisateurs" closable="false">
+                        <VBox spacing="15">
+                            <!-- Barre de recherche -->
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <TextField fx:id="searchField" promptText="Rechercher par nom, prénom, email ou rôle"
+                                           prefWidth="350" styleClass="search-field" />
+                                <Button text="Rechercher" onAction="#handleSearch" styleClass="modern-button" />
+                                <Button text="Rafraîchir" onAction="#refreshUserTable" styleClass="modern-button-secondary" />
+                            </HBox>
+
+                            <!-- Tableau des utilisateurs -->
+                            <TableView fx:id="userTableView" styleClass="modern-table-view" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="idColumn" text="ID" prefWidth="50" />
+                                    <TableColumn fx:id="nomColumn" text="Nom" prefWidth="120" />
+                                    <TableColumn fx:id="prenomColumn" text="Prénom" prefWidth="120" />
+                                    <TableColumn fx:id="emailColumn" text="Email" prefWidth="200" />
+                                    <TableColumn fx:id="roleColumn" text="Rôle" prefWidth="100" />
+                                </columns>
+                            </TableView>
+
+                            <!-- Formulaire d'édition -->
+                            <VBox styleClass="card" spacing="15">
+                                <Label text="Édition utilisateur" styleClass="card-title" />
+
+                                <GridPane hgap="15" vgap="10">
+                                    <columnConstraints>
+                                        <javafx.scene.layout.ColumnConstraints percentWidth="50" />
+                                        <javafx.scene.layout.ColumnConstraints percentWidth="50" />
+                                    </columnConstraints>
+
+                                    <!-- Nom -->
+                                    <Label text="Nom:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                    <TextField fx:id="nomField" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+
+                                    <!-- Prénom -->
+                                    <Label text="Prénom:" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                    <TextField fx:id="prenomField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                    <!-- Email -->
+                                    <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                    <TextField fx:id="emailField" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+
+                                    <!-- Mot de passe -->
+                                    <Label text="Mot de passe:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                                    <!-- Rôle -->
+                                    <Label text="Rôle:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                    <ComboBox fx:id="roleComboBox" prefWidth="Infinity" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                                </GridPane>
+
+                                <!-- Boutons d'action -->
+                                <HBox spacing="10" alignment="CENTER_RIGHT">
+                                    <Button text="Ajouter" onAction="#handleAjouterUser" styleClass="modern-button" />
+                                    <Button text="Modifier" onAction="#handleModifierUser" styleClass="modern-button-secondary" />
+                                    <Button text="Supprimer" onAction="#handleSupprimerUser" styleClass="modern-button-danger" />
+                                    <Button text="Effacer" onAction="#handleClearFields" styleClass="modern-button-secondary" />
+                                </HBox>
+
+                                <!-- Message de statut -->
+                                <Label fx:id="statusLabel" style="-fx-text-fill: #2ecc71; -fx-font-size: 14px;" />
+                            </VBox>
+                        </VBox>
+                    </Tab>
+
+                    <!-- Onglet Gestion des lignes -->
+                    <Tab text="Gestion des lignes" closable="false">
+                        <VBox spacing="15">
+                            <Label text="Gestion des lignes de bus" styleClass="section-title" />
+                            <Label text="Fonctionnalité en cours de développement" style="-fx-text-fill: #666666; -fx-font-size: 14px;" />
+                        </VBox>
+                    </Tab>
+
+                    <!-- Onglet Rapports -->
+                    <Tab text="Rapports et statistiques" closable="false">
+                        <VBox spacing="15">
+                            <Label text="Rapports et statistiques" styleClass="section-title" />
+                            <Label text="Fonctionnalité en cours de développement" style="-fx-text-fill: #666666; -fx-font-size: 14px;" />
+                        </VBox>
+                    </Tab>
+                </TabPane>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

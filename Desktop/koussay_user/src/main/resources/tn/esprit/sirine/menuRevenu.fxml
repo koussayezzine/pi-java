@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tn.esprit.sirine.controller.MenuRevenuController"
+            stylesheets="@styles.css"
+            styleClass="root-background">
+
+    <VBox spacing="15" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20">
+
+        <!-- Barre de recherche -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button fx:id="btnRetour" text="← Retour" onAction="#Retour" styleClass="blue-outline-button" />
+            <TextField fx:id="searchField" promptText="Rechercher un revenu..." HBox.hgrow="ALWAYS" styleClass="search-field" />
+            <Button fx:id="btnChercher" text="Chercher" onAction="#chercher" styleClass="blue-button" />
+        </HBox>
+
+        <!-- Table des revenus -->
+        <TableView fx:id="tableViewRevenu" VBox.vgrow="ALWAYS" styleClass="styled-table">
+            <columns>
+                <TableColumn fx:id="colMontant" text="Montant" prefWidth="100" />
+                <TableColumn fx:id="colDate" text="Date" prefWidth="100" />
+                <TableColumn fx:id="colSource" text="Source" prefWidth="120" />
+                <TableColumn fx:id="colTypeRevenu" text="Type Revenu" prefWidth="120" />
+                <TableColumn fx:id="colStatut" text="Statut" prefWidth="100" />
+                <TableColumn fx:id="colClient" text="Client" prefWidth="120" />
+                <TableColumn fx:id="colFactureDetails" text="Détails Facture" prefWidth="150" />
+            </columns>
+        </TableView>
+
+        <!-- Boutons d'action -->
+        <HBox spacing="15" alignment="CENTER">
+            <Button fx:id="btnAjouter" text="Ajouter" onAction="#Ajouter" styleClass="blue-button" />
+            <Button fx:id="btnModifier" text="Modifier" onAction="#Modifier" styleClass="green-button" />
+            <Button fx:id="btnSupprimer" text="Supprimer" onAction="#Supprimer" styleClass="red-button" />
+            <Button fx:id="btnStatistiques" text="Statistiques" onAction="#afficherStatistiques" styleClass="purple-button" />
+            <Button fx:id="btnGenererPdf" text="Générer PDF" onAction="#genererFacturePdf" styleClass="dark-button" />
+        </HBox>
+    </VBox>
+</AnchorPane>

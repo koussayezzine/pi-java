@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+
+<AnchorPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.sirine.controller.SupprimerBusController">
+    <children>
+        <VBox spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            
+            <!-- En-tête avec animation -->
+            <HBox alignment="CENTER" styleClass="header-box">
+                <Text styleClass="header-text" text="Supprimer un Bus" />
+            </HBox>
+            
+            <!-- Barre de recherche -->
+            <HBox alignment="CENTER" spacing="15" styleClass="fade-in">
+                <padding>
+                    <Insets top="10" right="20" bottom="10" left="20" />
+                </padding>
+                
+                <TextField fx:id="searchField" promptText="Rechercher par modèle ou plaque..." 
+                           styleClass="modern-field" prefWidth="300" />
+                <Button text="Rechercher" styleClass="wave-btn" onAction="#handleSearch" />
+            </HBox>
+            
+            <!-- Contenu principal -->
+            <HBox spacing="20" VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets left="20" right="20" />
+                </padding>
+                
+                <!-- Tableau des bus -->
+                <VBox spacing="10" HBox.hgrow="ALWAYS">
+                    <TableView fx:id="tableViewBus" VBox.vgrow="ALWAYS" styleClass="table-view">
+                        <columns>
+                            <!-- Colonne ID masquée mais toujours présente pour la sélection -->
+                            <TableColumn fx:id="colId" prefWidth="60" text="ID" visible="false" />
+                            <TableColumn fx:id="colModele" prefWidth="120" text="Modèle" />
+                            <TableColumn fx:id="colCapacite" prefWidth="80" text="Capacité" />
+                            <TableColumn fx:id="colPlaque" prefWidth="120" text="Plaque" />
+                            <TableColumn fx:id="colType" prefWidth="100" text="Type" />
+                            <TableColumn fx:id="colTarif" prefWidth="80" text="Tarif" />
+                            <TableColumn fx:id="colItineraire" prefWidth="100" text="Itinéraire" />
+                        </columns>
+                    </TableView>
+                </VBox>
+                
+                <!-- Panneau d'informations et de confirmation -->
+                <VBox spacing="15" prefWidth="300">
+                    <!-- Détails du bus sélectionné -->
+                    <VBox styleClass="modern-card" spacing="10">
+                        <Label text="Détails du bus sélectionné" styleClass="card-title" />
+                        <GridPane hgap="10" vgap="10">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Modèle:" />
+                                <Label fx:id="modeleLabel" text="--" GridPane.columnIndex="1" />
+                                <Label text="Plaque:" GridPane.rowIndex="1" />
+                                <Label fx:id="plaqueLabel" text="--" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label text="Type:" GridPane.rowIndex="2" />
+                                <Label fx:id="typeLabel" text="--" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            </children>
+                        </GridPane>
+                    </VBox>
+
+                    <!-- Boutons de navigation créatifs -->
+                    <HBox alignment="CENTER" spacing="30" styleClass="action-buttons-container">
+                        <padding>
+                            <Insets bottom="30" top="10" />
+                        </padding>
+                        
+                        <!-- Bouton Supprimer -->
+                        <VBox alignment="CENTER" styleClass="action-button-box">
+                            <Button fx:id="btnSupprimer" styleClass="circle-btn, delete-btn" onAction="#supprimerBus">
+                                <graphic>
+                                    <Text text="🗑" styleClass="btn-icon" />
+                                </graphic>
+                                <tooltip>
+                                    <Tooltip text="Supprimer ce bus" />
+                                </tooltip>
+                            </Button>
+                            <Label text="Supprimer" styleClass="btn-label" />
+                        </VBox>
+                        
+                        <!-- Bouton Retour -->
+                        <VBox alignment="CENTER" styleClass="action-button-box">
+                            <Button styleClass="circle-btn, back-btn" onAction="#retourListe">
+                                <graphic>
+                                    <Text text="⟵" styleClass="btn-icon" />
+                                </graphic>
+                                <tooltip>
+                                    <Tooltip text="Retour à la liste des bus" />
+                                </tooltip>
+                            </Button>
+                            <Label text="Retour" styleClass="btn-label" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </HBox>
+            
+            <!-- Message de notification -->
+            <HBox alignment="CENTER">
+                <Label fx:id="snackbarLabel" styleClass="snackbar" visible="false" />
+            </HBox>
+            
+            <!-- Boutons de navigation créatifs -->
+            <HBox alignment="CENTER" spacing="30" styleClass="action-buttons-container">
+                <padding>
+                    <Insets bottom="20" />
+                </padding>
+                
+                <!-- Bouton Supprimer -->
+                <VBox alignment="CENTER" styleClass="action-button-box">
+                    <Button fx:id="btnSupprimer" styleClass="circle-btn, delete-btn" onAction="#supprimerBus">
+                        <graphic>
+                            <Text text="🗑" styleClass="btn-icon" />
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Supprimer ce bus" />
+                        </tooltip>
+                    </Button>
+                    <Label text="Supprimer" styleClass="btn-label" />
+                </VBox>
+                
+                <!-- Bouton Annuler -->
+                <VBox alignment="CENTER" styleClass="action-button-box">
+                    <Button styleClass="circle-btn, cancel-btn" onAction="#annuler">
+                        <graphic>
+                            <Text text="✕" styleClass="btn-icon" />
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Annuler la sélection" />
+                        </tooltip>
+                    </Button>
+                    <Label text="Annuler" styleClass="btn-label" />
+                </VBox>
+                
+                <!-- Bouton Retour -->
+                <VBox alignment="CENTER" styleClass="action-button-box">
+                    <Button styleClass="circle-btn, back-btn" onAction="#retourListe">
+                        <graphic>
+                            <Text text="⟵" styleClass="btn-icon" />
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Retour à la liste des bus" />
+                        </tooltip>
+                    </Button>
+                    <Label text="Retour" styleClass="btn-label" />
+                </VBox>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

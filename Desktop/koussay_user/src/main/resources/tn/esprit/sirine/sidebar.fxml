@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import java.net.URL?>
+
+<AnchorPane prefHeight="589.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tn.esprit.sirine.controller.SideBarController">
+
+    <children>
+        <VBox fx:id="sidebar" alignment="TOP_CENTER" spacing="15" styleClass="sidebar" prefWidth="220.0">
+
+            <stylesheets>
+                <URL value="@sidebar.css" />
+            </stylesheets>
+
+            <!-- Logo et Titre -->
+            <VBox alignment="CENTER" spacing="5">
+                <Label text="TMS" textAlignment="CENTER" styleClass="sidebar-title">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Label text="Transport Management System" style="-fx-text-fill: white; -fx-font-size: 12px; -fx-opacity: 0.8;" />
+            </VBox>
+
+            <!-- Profil -->
+            <VBox alignment="CENTER" styleClass="profile-container">
+                <Label text="Welcome" textAlignment="CENTER" style="-fx-text-fill: white; -fx-font-size: 14px; -fx-opacity: 0.9;" />
+                <Label fx:id="nameCurrentUser" textAlignment="CENTER" styleClass="profile-name" />
+            </VBox>
+
+            <!-- Barre de recherche -->
+            <TextField promptText="Search..." styleClass="search-field" />
+
+            <!-- Menu principal -->
+            <VBox spacing="10">
+                <Button onAction="#goToRevenue" text="Revenue" styleClass="sidebar-button" />
+                <Button onAction="#goToReservations" text="Réservations" styleClass="sidebar-button" />
+                <Button onAction="#goToTickets" text="Tickets" styleClass="sidebar-button" />
+                <Button onAction="#goToDashboardW" text="Dashboard bus" styleClass="sidebar-button" />
+                <Button onAction="#goToPublication" text="Publication" styleClass="sidebar-button" />
+                <Button fx:id="editProfileButton" onAction="#openEditProfile" text="Modifier Profil" styleClass="sidebar-button" />
+            </VBox>
+
+            <!-- Logout et Dark Mode -->
+            <VBox spacing="15">
+                <Separator style="-fx-background-color: rgba(255,255,255,0.2); -fx-opacity: 0.6;" />
+
+                <HBox alignment="CENTER" spacing="10">
+                    <Label text="Dark Mode" style="-fx-text-fill: white;" />
+                    <ToggleButton fx:id="darkModeToggle" onAction="#toggleDarkMode" styleClass="toggle-button" />
+                </HBox>
+
+                <Button onAction="#logout" text="Logout" styleClass="sidebar-button">
+                    <graphic>
+                        <Label text="⏻" style="-fx-text-fill: white; -fx-font-size: 16px;" />
+                    </graphic>
+                </Button>
+            </VBox>
+
+        </VBox>
+    </children>
+</AnchorPane>

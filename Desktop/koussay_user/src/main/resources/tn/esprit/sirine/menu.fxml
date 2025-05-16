@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #f4f9fc;" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.sirine.controller.menuController">
+
+    <children>
+
+        <!-- Champ de recherche + Bouton -->
+        <HBox layoutX="180.0" layoutY="40.0" spacing="10">
+            <TextField fx:id="searchField" prefWidth="220.0" promptText="Rechercher une dépense..." styleClass="search-field" />
+            <Button fx:id="labelchercher" onAction="#chercher" styleClass="blue-button" text="Chercher" />
+        </HBox>
+
+        <!-- Bouton retour -->
+        <Button fx:id="labelRetour" layoutX="30.0" layoutY="40.0" onAction="#Retour" styleClass="blue-outline-button" text="← Retour" />
+
+        <!-- Tableau des dépenses -->
+        <TableView fx:id="tableViewDepenses" layoutX="40.0" layoutY="100.0" prefHeight="280.0" prefWidth="620.0" styleClass="styled-table">
+            <columns>
+                <TableColumn fx:id="colMontant" prefWidth="85.0" text="Montant" />
+                <TableColumn fx:id="colDate" prefWidth="90.0" text="Date" />
+                <TableColumn fx:id="colDescription" prefWidth="110.0" text="Description" />
+                <TableColumn fx:id="colCategorie" prefWidth="90.0" text="Catégorie" />
+                <TableColumn fx:id="colJustificatif" prefWidth="90.0" text="Justificatif" />
+                <TableColumn fx:id="colStatut" prefWidth="80.0" text="Statut" />
+                <TableColumn fx:id="colFournisseur" prefWidth="90.0" text="Fournisseur" />
+            </columns>
+        </TableView>
+
+        <!-- Boutons d’action -->
+        <HBox layoutX="120.0" layoutY="400.0" spacing="30">
+            <Button fx:id="labelAjouter" onAction="#Ajouter" styleClass="blue-button" text="Ajouter" />
+            <Button fx:id="labelModifier" onAction="#Modifier" styleClass="blue-button" text="Modifier" />
+            <Button fx:id="labelSupprimer" onAction="#Supprimer" styleClass="red-button" text="Supprimer" />
+            <Button fx:id="btnGenererPdf" onAction="#genererFacturePdf" styleClass="red-button" text="Générer PDF" />
+        </HBox>
+
+
+    </children>
+</AnchorPane>

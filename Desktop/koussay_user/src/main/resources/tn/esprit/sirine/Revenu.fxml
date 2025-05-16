@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to bottom right, #ffffff, #f0f2f5);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.sirine.controller.AjouterrevenuController">
+
+    <ScrollPane fitToWidth="true" layoutX="0" layoutY="0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+        <VBox spacing="20" style="-fx-padding: 30;">
+            
+            <!-- En-tête -->
+            <VBox alignment="CENTER" spacing="10">
+                <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;" text="Gestion des Revenus">
+                    <effect>
+                        <DropShadow color="#00000022" radius="5" />
+                    </effect>
+                </Label>
+                <Text style="-fx-font-size: 14px; -fx-fill: #7f8c8d;" text="Entrez les informations du revenu" />
+            </VBox>
+
+            <!-- Formulaire -->
+            <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0.5, 0.0, 2.0);">
+                
+                <!-- Champs du formulaire -->
+                <GridPane hgap="15" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="150" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="200" />
+                    </columnConstraints>
+
+                    <!-- Montant -->
+                    <Label style="-fx-font-weight: bold;" text="Montant" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="TFMontant" promptText="Entrez le montant" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <!-- Date -->
+                    <Label style="-fx-font-weight: bold;" text="Date" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <DatePicker fx:id="TFDate" promptText="Sélectionnez la date" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <!-- Source -->
+                    <Label style="-fx-font-weight: bold;" text="Source" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="TFSource" promptText="Entrez la source" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <!-- Type de Revenu -->
+                    <Label style="-fx-font-weight: bold;" text="Type de Revenu" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <ComboBox fx:id="TFTypeRevenu" maxWidth="Infinity" promptText="Sélectionnez le type" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                    <!-- Statut -->
+                    <Label style="-fx-font-weight: bold;" text="Statut" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <ComboBox fx:id="TFStatut" maxWidth="Infinity" promptText="Sélectionnez le statut" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                    <!-- Client -->
+                    <Label style="-fx-font-weight: bold;" text="Client" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                    <TextField fx:id="TFClient" promptText="Entrez le nom du client" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                    <!-- Détails de la Facture -->
+                    <Label style="-fx-font-weight: bold;" text="Détails de la Facture" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                    <TextArea fx:id="TFFactureDetails" prefRowCount="3" promptText="Entrez les détails de la facture" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+                </GridPane>
+
+                <!-- Boutons -->
+                <HBox alignment="CENTER_RIGHT" spacing="10">
+                    <Button fx:id="btnRetour" onAction="#retour" style="-fx-background-color: #95a5a6; -fx-text-fill: white;" text="Retour" />
+                    <Button fx:id="btnAjouter" onAction="#ajouter" style="-fx-background-color: #3498db; -fx-text-fill: white;" text="Ajouter" />
+                </HBox>
+            </VBox>
+        </VBox>
+        <padding>
+            <Insets bottom="20" left="20" right="20" top="20" />
+        </padding>
+    </ScrollPane>
+</AnchorPane>

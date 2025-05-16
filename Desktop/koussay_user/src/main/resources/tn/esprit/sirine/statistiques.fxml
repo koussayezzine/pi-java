@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+
+<VBox spacing="15" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="tn.esprit.sirine.controller.StatistiquesController" style="-fx-padding: 20;">
+
+    <Label text="Statistiques des Revenus" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+    <ComboBox fx:id="comboCritere" prefWidth="200" />
+
+    <BarChart fx:id="barChart" title="Données de Revenus"
+              prefHeight="400" prefWidth="600">
+        <xAxis>
+            <CategoryAxis label="Catégorie" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Montant (€)" />
+        </yAxis>
+    </BarChart>
+
+    <Button fx:id="btnRetour" text="Retour" onAction="#retour" 
+            style="-fx-background-color: #2C3E50; -fx-text-fill: white; -fx-font-size: 14px;" />
+</VBox>

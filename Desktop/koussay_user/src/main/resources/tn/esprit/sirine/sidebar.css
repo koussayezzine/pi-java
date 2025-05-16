@@ -1,0 +1,80 @@
+/* Général de la sidebar - Style moderne */
+.sidebar {
+    -fx-background-color: linear-gradient(to bottom, #1fa0da, #1295d5);
+    -fx-padding: 20px;
+    -fx-spacing: 15px;
+    -fx-pref-width: 250px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 2);
+    -fx-border-width: 0 1 0 0;
+    -fx-border-color: rgba(0,0,0,0.1);
+}
+
+/* Boutons de la sidebar - Style moderne */
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 15px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+    -fx-background-radius: 8;
+    -fx-transition: all 0.3s ease-in-out;
+    -fx-graphic-text-gap: 12px;
+    -fx-min-width: 200px;
+}
+
+/* Hover - Style moderne */
+.sidebar-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.5), 8, 0.4, 0, 0);
+}
+
+/* Bouton actif - Style moderne */
+.sidebar-button.active {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-border-color: white;
+    -fx-border-width: 0 0 0 3;
+    -fx-border-radius: 0;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.5), 10, 0.4, 0, 0);
+}
+
+/* Icônes SVG ou FontAwesome (si utilisés comme Label ou GlyphIcon) */
+.sidebar-icon {
+    -fx-fill: #aaaaaa;
+    -fx-font-size: 18px;
+}
+
+.sidebar-button:hover .sidebar-icon,
+.sidebar-button.active .sidebar-icon {
+    -fx-fill: #00c8ff;
+}
+
+/* Titre ou en-tête de la sidebar - Style moderne */
+.sidebar-title {
+    -fx-font-size: 22px;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 20 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 2, 0, 0, 1);
+}
+
+/* Toggle button pour le dark mode */
+.toggle-button {
+    -fx-background-color: #383854;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-min-width: 40px;
+    -fx-min-height: 20px;
+    -fx-cursor: hand;
+}
+
+.toggle-button:selected {
+    -fx-background-color: #49e38f;
+}
+
+/* Ajustement de la largeur */
+.sidebar {
+    -fx-pref-width: 220px;
+}

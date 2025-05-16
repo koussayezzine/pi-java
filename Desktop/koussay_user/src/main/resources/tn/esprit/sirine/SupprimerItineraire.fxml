@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+
+<AnchorPane prefHeight="700" prefWidth="1000" stylesheets="@style.css" 
+            xmlns="http://javafx.com/javafx/21" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="tn.esprit.sirine.controller.SupprimerItineraireController">
+    <children>
+        <VBox spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            
+            <!-- En-tête avec animation -->
+            <HBox alignment="CENTER" styleClass="header-box">
+                <Text styleClass="header-text" text="Supprimer un Itinéraire" />
+            </HBox>
+            
+            <!-- Barre de recherche -->
+            <HBox alignment="CENTER" spacing="15" styleClass="fade-in">
+                <padding>
+                    <Insets top="10" right="20" bottom="10" left="20" />
+                </padding>
+                
+                <TextField fx:id="searchField" promptText="Rechercher par ville de départ ou d'arrivée..." 
+                           styleClass="modern-field" prefWidth="300" />
+                <Button text="Rechercher" styleClass="wave-btn" onAction="#handleSearch" />
+            </HBox>
+            
+            <!-- Contenu principal -->
+            <HBox spacing="20" VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets left="20" right="20" />
+                </padding>
+                
+                <!-- Tableau des itinéraires -->
+                <VBox spacing="10" HBox.hgrow="ALWAYS">
+                    <TableView fx:id="itineraireTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+                        <columns>
+                            <TableColumn fx:id="villeDepartColumn" prefWidth="120" text="Ville de Départ" />
+                            <TableColumn fx:id="villeArriveeColumn" prefWidth="120" text="Ville d'Arrivée" />
+                            <TableColumn fx:id="arretsColumn" prefWidth="150" text="Arrêts" />
+                            <TableColumn fx:id="distanceColumn" prefWidth="80" text="Distance" />
+                            <TableColumn fx:id="dureeColumn" prefWidth="100" text="Durée Estimée" />
+                        </columns>
+                    </TableView>
+                </VBox>
+                
+                <!-- Panneau d'informations et de confirmation -->
+                <VBox spacing="15" prefWidth="300">
+                    <!-- Détails de l'itinéraire sélectionné -->
+                    <VBox styleClass="modern-card" spacing="10">
+                        <Label text="Détails de l'itinéraire sélectionné" styleClass="card-title" />
+                        <GridPane hgap="10" vgap="10">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Ville de départ:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                                <Label fx:id="villeDepartLabel" text="--" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                                
+                                <Label text="Ville d'arrivée:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                                <Label fx:id="villeArriveeLabel" text="--" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                                
+                                <Label text="Arrêts:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                                <Label fx:id="arretsLabel" text="--" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                                
+                                <Label text="Distance:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                                <Label fx:id="distanceLabel" text="--" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                            </children>
+                        </GridPane>
+                    </VBox>
+                    
+                    <!-- Confirmation de suppression -->
+                    <VBox styleClass="modern-card" spacing="10">
+                        <Label text="Confirmation" styleClass="card-title" />
+                        <Text text="Êtes-vous sûr de vouloir supprimer cet itinéraire? Cette action est irréversible." 
+                              wrappingWidth="250" />
+                        <HBox spacing="10" alignment="CENTER">
+                            <Button fx:id="btnSupprimer" onAction="#supprimerItineraire" 
+                                    styleClass="delete-btn" text="🗑 Supprimer" />
+                            <Button onAction="#annuler" styleClass="wave-btn" text="Annuler" />
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </HBox>
+            
+            <!-- Message de notification -->
+            <HBox alignment="CENTER">
+                <Label fx:id="snackbarLabel" styleClass="snackbar" visible="false" />
+            </HBox>
+            
+            <!-- Boutons de navigation créatifs -->
+            <HBox alignment="CENTER" spacing="30" styleClass="action-buttons-container">
+                <padding>
+                    <Insets bottom="20" />
+                </padding>
+                
+                <!-- Bouton Supprimer -->
+                <VBox alignment="CENTER" styleClass="action-button-box">
+                    <Button fx:id="btnSupprimer" styleClass="circle-btn, delete-btn" onAction="#supprimerItineraire">
+                        <graphic>
+                            <Text text="🗑" styleClass="btn-icon" />
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Supprimer cet itinéraire" />
+                        </tooltip>
+                    </Button>
+                    <Label text="Supprimer" styleClass="btn-label" />
+                </VBox>
+                
+                <!-- Bouton Annuler -->
+                <VBox alignment="CENTER" styleClass="action-button-box">
+                    <Button styleClass="circle-btn, cancel-btn" onAction="#annuler">
+                        <graphic>
+                            <Text text="✕" styleClass="btn-icon" />
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Annuler la sélection" />
+                        </tooltip>
+                    </Button>
+                    <Label text="Annuler" styleClass="btn-label" />
+                </VBox>
+                
+                <!-- Bouton Retour -->
+                <VBox alignment="CENTER" styleClass="action-button-box">
+                    <Button styleClass="circle-btn, back-btn" onAction="#goBack">
+                        <graphic>
+                            <Text text="⟵" styleClass="btn-icon" />
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Retour à la liste des itinéraires" />
+                        </tooltip>
+                    </Button>
+                    <Label text="Retour" styleClass="btn-label" />
+                </VBox>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>
